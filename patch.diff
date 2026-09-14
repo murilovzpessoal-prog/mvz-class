@@ -1,0 +1,19 @@
+--- src/pages/Jornada.tsx
++++ src/pages/Jornada.tsx
+@@ -138,13 +138,10 @@
+             >
+               <div className="relative w-full h-full bg-[#050505] rounded-[32px] overflow-hidden flex flex-col z-10 p-[2px]">
+                 
+-                {/* Imagem Pura com Profundidade (Scale menor para afastar o símbolo) */}
++                {/* Imagem Pura: Aguardando as novas imagens 4:5 */}
+                 <img 
+                   src={goal.image} 
+                   alt={goal.title}
+-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 z-10 opacity-90 scale-[0.85] group-hover:scale-[0.90] group-hover:opacity-100" 
++                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 z-10 opacity-90 group-hover:scale-105 group-hover:opacity-100" 
+                 />
+ 
+-                {/* Máscara de Vinheta para esconder as bordas da imagem encolhida e fundir com o fundo */}
+-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,#050505_85%)] z-10 pointer-events-none" />
+-
+                 {/* Degradê apenas no rodapé para o botão */}
