@@ -23,7 +23,9 @@ import {
   Lock,
   LogOut,
   Check,
-  Loader2
+  Loader2,
+  SlidersHorizontal,
+  Store
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -33,12 +35,24 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const SidebarItem = ({ icon: Icon, label, to, onClick }: { icon: any, label: string, to: string, onClick?: () => void }) => (
+const SidebarItem = ({ 
+  icon: Icon, 
+  label, 
+  to, 
+  badge,
+  onClick 
+}: { 
+  icon: any, 
+  label: string, 
+  to: string, 
+  badge?: string,
+  onClick?: () => void 
+}) => (
   <NavLink 
     to={to} 
     onClick={onClick}
     className={({ isActive }) => cn(
-      "flex items-center gap-3 px-4 py-3 rounded-lg text-[13px] font-medium transition-all duration-300 group mb-1",
+      "flex items-center justify-between px-4 py-3 rounded-lg text-[13px] font-medium transition-all duration-300 group mb-1",
       isActive 
         ? "bg-white/10 text-white" 
         : "text-text-muted hover:text-white hover:bg-white/5"
@@ -46,8 +60,15 @@ const SidebarItem = ({ icon: Icon, label, to, onClick }: { icon: any, label: str
   >
     {({ isActive }) => (
       <>
-        <Icon className={cn("w-[18px] h-[18px]", isActive ? "text-white" : "text-text-muted group-hover:text-white")} strokeWidth={isActive ? 2.5 : 2} />
-        {label}
+        <div className="flex items-center gap-3 min-w-0">
+          <Icon className={cn("w-[18px] h-[18px] shrink-0", isActive ? "text-white" : "text-text-muted group-hover:text-white")} strokeWidth={isActive ? 2.5 : 2} />
+          <span className="truncate">{label}</span>
+        </div>
+        {badge && (
+          <span className="text-[9px] font-black uppercase tracking-wider bg-[#00e5ff]/15 text-[#00e5ff] border border-[#00e5ff]/30 px-1.5 py-0.5 rounded-md shrink-0">
+            {badge}
+          </span>
+        )}
       </>
     )}
   </NavLink>
@@ -394,6 +415,8 @@ export function AppLayout() {
           <SidebarItem icon={Map} label="Minha Jornada" to="/jornada" onClick={() => setIsMobileMenuOpen(false)} />
           <SidebarItem icon={Package} label="Produtos" to="/produtos" onClick={() => setIsMobileMenuOpen(false)} />
           <SidebarItem icon={ScanSearch} label="Scanner" to="/scanner" onClick={() => setIsMobileMenuOpen(false)} />
+          <SidebarItem icon={SlidersHorizontal} label="Score Produto" to="/analisador-produto" badge="Novo" onClick={() => setIsMobileMenuOpen(false)} />
+          <SidebarItem icon={Store} label="Score Lojista" to="/analisador-fornecedor" badge="Novo" onClick={() => setIsMobileMenuOpen(false)} />
           
           <div className="my-2 border-t border-white/5" />
           

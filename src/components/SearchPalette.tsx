@@ -12,7 +12,9 @@ import {
   MessageCircle, 
   ExternalLink,
   ScanSearch,
-  Package
+  Package,
+  SlidersHorizontal,
+  Store
 } from 'lucide-react';
 import { modulesData } from '../data/modules';
 
@@ -98,6 +100,28 @@ export function SearchPalette({ isOpen, onClose }: SearchPaletteProps) {
         icon: Package,
         colorHex: '#ffaa00',
         url: '/produtos'
+      },
+      {
+        type: 'feature',
+        id: 'feat-analisador-produto',
+        title: 'Analisador de Produto (Score & Ban)',
+        subtitle: 'Ferramenta Anti-Ban & Validação',
+        description: 'Calcule o score do produto e evite violações das diretrizes do TikTok Shop',
+        keywords: 'analisador score produto viabilidade ban banimento restricoes diretrizes tiktok',
+        icon: SlidersHorizontal,
+        colorHex: '#00e5ff',
+        url: '/analisador-produto'
+      },
+      {
+        type: 'feature',
+        id: 'feat-analisador-fornecedor',
+        title: 'Analisador de Lojista & Fornecedor',
+        subtitle: 'Auditoria de Fornecedores TikTok Shop',
+        description: 'Analise reputação, nota da loja, despacho em 48h e scripts de negociação',
+        keywords: 'analisador fornecedor lojista reputacao nota despacho estoque amostra script negociacao',
+        icon: Store,
+        colorHex: '#ff007f',
+        url: '/analisador-fornecedor'
       }
     );
 

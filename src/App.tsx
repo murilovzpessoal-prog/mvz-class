@@ -7,6 +7,8 @@ import { Modulos } from './pages/Modulos';
 import { Suporte } from './pages/Suporte';
 import { Scanner } from './pages/Scanner';
 import { Produtos } from './pages/Produtos';
+import { AnalisadorProduto } from './pages/AnalisadorProduto';
+import { AnalisadorFornecedor } from './pages/AnalisadorFornecedor';
 import { Aula } from './pages/Aula';
 import { Login } from './pages/Login';
 
@@ -21,6 +23,8 @@ function App() {
           <Route path="suporte" element={<Suporte />} />
           <Route path="scanner" element={<Scanner />} />
           <Route path="produtos" element={<Produtos />} />
+          <Route path="analisador-produto" element={<AnalisadorProduto />} />
+          <Route path="analisador-fornecedor" element={<AnalisadorFornecedor />} />
         </Route>
         {/* Aulas page runs outside AppLayout to take full screen */}
         <Route path="/login" element={<Login />} />
