@@ -4,6 +4,99 @@ import { Package, ExternalLink, TrendingUp, Tag, ShoppingCart } from 'lucide-rea
 export function Produtos() {
   // Dados reais dos produtos
   const produtos = [
+    // 1. NOVOS PRODUTOS NO TOPO (Prioridade Máxima)
+    {
+      id: 21,
+      name: 'CONJUNTO FEMININO FITNESS TOP E CALÇA LEGGING',
+      link: 'https://vt.tiktok.com/ZS9ADHToDhTPh-qdCDt/',
+      image: 'https://i.imgur.com/0FkLiB3.jpeg',
+    },
+    {
+      id: 22,
+      name: 'SAÍDA DE PRAIA CONJUNTO CROCHÊ TRICO',
+      link: 'https://vt.tiktok.com/ZS9AD9M82xD3W-Uwpnp/',
+      image: 'https://i.imgur.com/yPmBuKE.jpeg',
+    },
+    {
+      id: 23,
+      name: 'TOP CROPPED FEMININO FRENTE ÚNICA',
+      link: 'https://vt.tiktok.com/ZS9AD9AHj3yTf-Devo0/',
+      image: 'https://i.imgur.com/9QappSG.jpeg',
+    },
+    {
+      id: 24,
+      name: 'BLUSA CROPPED ALÇA FINA',
+      link: 'https://vt.tiktok.com/ZS9AD9H8sbg7v-pAF4k/',
+      image: 'https://i.imgur.com/CunT32T.jpeg',
+    },
+    {
+      id: 25,
+      name: 'MACAQUINHO FITNESS ALCINHA BLACKOUT',
+      link: 'https://vt.tiktok.com/ZS9AD9tMUdFeY-NaUKz/',
+      image: 'https://i.imgur.com/K1umUq5.jpeg',
+    },
+    {
+      id: 26,
+      name: 'SHORTS MODELADOR YOGA EMPINA BUMBUM',
+      link: 'https://vt.tiktok.com/ZS9ADxeYx4efk-mPO2U/',
+      image: 'https://i.imgur.com/VTTffov.jpeg',
+    },
+    {
+      id: 27,
+      name: 'VESTIDO MIDI FEMININO DE ALÇA EM RIBANA',
+      link: 'https://vt.tiktok.com/ZS9ADx6VuEG51-b6uYw/',
+      image: 'https://i.imgur.com/2cQbml3.jpeg',
+    },
+    {
+      id: 28,
+      name: 'TOP CROPPED SLIM FIT DECOTE COM AMARRAÇÃO',
+      link: 'https://vt.tiktok.com/ZS9ADxfYNYUm2-Lmfz1/',
+      image: 'https://i.imgur.com/aFmN5VH.jpeg',
+    },
+    {
+      id: 29,
+      name: 'BODY MAIÔ FEMININO BICOLOR ALCINHA',
+      link: 'https://vt.tiktok.com/ZS9ADxT5oFN48-U8O0T/',
+      image: 'https://i.imgur.com/DXiE0Et.jpeg',
+    },
+    {
+      id: 30,
+      name: 'VESTIDO SUPLEX PREMIUM LONGO',
+      link: 'https://vt.tiktok.com/ZS9ADQ6NVp4AF-zmFWw/',
+      image: 'https://i.imgur.com/V4UKuHz.jpeg',
+    },
+    {
+      id: 31,
+      name: 'SHORT FEMININO DUNA CINTURA ALTA',
+      link: 'https://vt.tiktok.com/ZS9ADQDvfjCbM-2ooIc/',
+      image: 'https://i.imgur.com/OJeBnvj.jpeg',
+    },
+    {
+      id: 32,
+      name: 'MACAQUINHO FEMININO FITNESS ZERO TRANSPARÊNCIA',
+      link: 'https://vt.tiktok.com/ZS9AUSaHNefBT-o5xBk/',
+      image: 'https://i.imgur.com/eTa5NFn.jpeg',
+    },
+    {
+      id: 33,
+      name: 'KIT COM 2 BLUSAS REGATA EFEITO SILICONE',
+      link: 'https://vt.tiktok.com/ZS9AUSg2TWAUS-Cr0YV/',
+      image: 'https://i.imgur.com/ycz30lp.jpeg',
+    },
+    {
+      id: 34,
+      name: 'CALÇA LEGGING FLARE FLANELADA',
+      link: 'https://vt.tiktok.com/ZS9AUSwdVFQuX-y1a0B/',
+      image: 'https://i.imgur.com/fI50eIE.jpeg',
+    },
+    {
+      id: 35,
+      name: 'CALÇA FLARE ALFAIATARIA SOCIAL CINTURA ALTA',
+      link: 'https://vt.tiktok.com/ZS9AUANtheAFg-ORUE4/',
+      image: 'https://i.imgur.com/icKWKbv.jpeg',
+    },
+
+    // 2. PRODUTOS PADRÃO ANTERIORES
     {
       id: 1,
       name: 'KIT CALÇA BICOLOR FEMININA FORRADA COM LISTAS',
@@ -64,6 +157,8 @@ export function Produtos() {
       link: 'https://vt.tiktok.com/ZS9SQr5ThfAxN-Y98sf/',
       image: 'https://i.imgur.com/YsoaeHO.jpeg',
     },
+
+    // 3. PRODUTOS PLUS SIZE (No Final da Lista)
     {
       id: 11,
       name: 'VESTIDO FEMININO ELEGANTE COM ESTAMPA, UM OMBRO SÓ, RECORTES E AMARRAÇÃO',
