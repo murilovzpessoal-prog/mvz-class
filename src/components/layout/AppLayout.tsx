@@ -92,7 +92,8 @@ export function AppLayout() {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) {
+      const isMasterAuth = localStorage.getItem("mvz_user_email");
+      if (!session && !isMasterAuth) {
         navigate('/login');
       }
     });
@@ -100,7 +101,8 @@ export function AppLayout() {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session) {
+      const isMasterAuth = localStorage.getItem("mvz_user_email");
+      if (!session && !isMasterAuth) {
         navigate('/login');
       }
     });
@@ -143,7 +145,7 @@ export function AppLayout() {
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [profileError, setProfileError] = useState("");
 
-  // Carregar dados reais do usuário logado no Supabase
+  // Carregar dados reais do usuário logado no Supabase ou LocalStorage
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
       if (user) {
@@ -154,6 +156,11 @@ export function AppLayout() {
         }
         if (user.user_metadata?.avatar_url) {
           setUserAvatar(user.user_metadata.avatar_url);
+        }
+      } else {
+        const storedEmail = localStorage.getItem("mvz_user_email");
+        if (storedEmail) {
+          setUserName(storedEmail.split('@')[0]);
         }
       }
     });
@@ -369,7 +376,10 @@ export function AppLayout() {
             <button 
               onClick={() => {
                 setIsSettingsOpen(false);
-                supabase.auth.signOut(); navigate('/login');
+                localStorage.removeItem("mvz_user_email");
+                localStorage.removeItem("mvz_master_auth");
+                supabase.auth.signOut();
+                navigate('/login');
               }}
               className="w-full mt-4 bg-transparent border border-red-500/20 text-red-400 hover:bg-red-500/10 hover:border-red-500/40 font-black uppercase tracking-widest text-sm py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
             >

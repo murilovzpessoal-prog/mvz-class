@@ -72,7 +72,8 @@ export function Aula() {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) {
+      const isMasterAuth = localStorage.getItem("mvz_user_email");
+      if (!session && !isMasterAuth) {
         navigate('/login');
       }
     });

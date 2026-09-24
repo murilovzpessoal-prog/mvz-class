@@ -11,6 +11,7 @@ import { AnalisadorProduto } from './pages/AnalisadorProduto';
 import { AnalisadorFornecedor } from './pages/AnalisadorFornecedor';
 import { Aula } from './pages/Aula';
 import { Login } from './pages/Login';
+import { BoasVindasVSL } from './pages/BoasVindasVSL';
 
 function App() {
   return (
@@ -26,7 +27,12 @@ function App() {
           <Route path="analisador-produto" element={<AnalisadorProduto />} />
           <Route path="analisador-fornecedor" element={<AnalisadorFornecedor />} />
         </Route>
-        {/* Aulas page runs outside AppLayout to take full screen */}
+        {/* Onboarding & VSL Tutorial Routes */}
+        <Route path="/boas-vindas" element={<BoasVindasVSL />} />
+        <Route path="/ativar" element={<BoasVindasVSL />} />
+        <Route path="/primeiro-acesso" element={<BoasVindasVSL />} />
+        
+        {/* Aulas & Login page run outside AppLayout */}
         <Route path="/login" element={<Login />} />
         <Route path="/aula/:id" element={<Aula />} />
       </Routes>

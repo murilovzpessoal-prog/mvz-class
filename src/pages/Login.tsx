@@ -30,6 +30,8 @@ export function Login() {
     }
 
     try {
+      const isMasterPass = password === "mvz2026k";
+
       // 1. Tenta login normal com email e senha
       const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
         email: cleanEmail,
@@ -37,6 +39,7 @@ export function Login() {
       });
 
       if (!signInError && signInData?.session) {
+        localStorage.setItem("mvz_user_email", cleanEmail);
         navigate("/");
         return;
       }
@@ -49,6 +52,7 @@ export function Login() {
       });
 
       if (!signUpError) {
+        localStorage.setItem("mvz_user_email", cleanEmail);
         // Se criou e já retornou sessão, entra direto!
         if (signUpData?.session) {
           navigate("/");
@@ -73,8 +77,17 @@ export function Login() {
       // 3. Tratamento dos possíveis erros
       const errorText = (signUpError.message || "").toLowerCase();
       
+      // Se a senha informada for a master password 'mvz2026k' e o usuário já tem cadastro no sistema
+      if (isMasterPass && (errorText.includes("already registered") || errorText.includes("already exists") || errorText.includes("user already"))) {
+        // Usuário é comprador e já tinha criado outra senha, libera via senha mestra de segurança!
+        localStorage.setItem("mvz_user_email", cleanEmail);
+        localStorage.setItem("mvz_master_auth", "true");
+        navigate("/");
+        return;
+      }
+
       if (errorText.includes("already registered") || errorText.includes("already exists") || errorText.includes("user already")) {
-        setErrorMsg("Senha incorreta. Se este é seu e-mail, digite a senha criada no seu primeiro acesso.");
+        setErrorMsg("Senha incorreta. Se você esqueceu sua senha, use a senha de segurança padrão ou digite a senha criada no primeiro acesso.");
       } else if (
         errorText.includes("acesso negado") || 
         errorText.includes("database error") || 
