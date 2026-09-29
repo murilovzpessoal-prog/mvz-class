@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /login
+Allow: /boas-vindas
+Allow: /produtos
+Allow: /modulos
+Allow: /jornada
+Allow: /suporte
+
+Sitemap: https://mvzclass.com.br/sitemap.xml
