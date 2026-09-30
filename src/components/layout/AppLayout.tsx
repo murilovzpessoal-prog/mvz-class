@@ -454,6 +454,17 @@ export function AppLayout() {
             label="Grupo Discord" 
             href="https://discord.gg/z2bdhZwKRS" 
           />
+
+          <ExternalSidebarItem 
+            icon={(props: any) => (
+              <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m21.5 2-19 9.5 7.5 3 2.5 7.5 3.5-4.5 5.5 4.5 3-18.5-3 18z" />
+                <path d="M10 14.5 21 3" />
+              </svg>
+            )} 
+            label="Grupo Telegram" 
+            href="https://t.me/+E91RLWO5fvQyM2Ex" 
+          />
           
           <SidebarItem icon={HeadphonesIcon} label="Suporte" to="/suporte" onClick={() => setIsMobileMenuOpen(false)} />
         </nav>
