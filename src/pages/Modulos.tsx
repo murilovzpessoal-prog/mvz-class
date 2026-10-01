@@ -31,6 +31,8 @@ export function Modulos() {
     { id: 10, tag: 'MÓDULO 10', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/b09a8a12-f1ae-45a0-a077-eeec4ec7babe.png', titleMain: 'CABIDE', titleSub: '', colorHex: '#00e5ff' },
     { id: 11, tag: 'MÓDULO 11', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/7daef890-76c3-401f-8154-d0953f492b60.png', titleMain: 'BUMERANGUE', titleSub: '', colorHex: '#ff3333' },
     { id: 12, tag: 'MÓDULO 12', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/662f6afa-d669-4d94-99dc-c068c60d91ee.png', titleMain: 'PLUS SIZE', titleSub: '', colorHex: '#ff00ff' },
+    { id: 24, tag: 'MÓDULO 24', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://i.imgur.com/34BJCxh.png', titleMain: 'MIRROR', titleSub: 'no face', colorHex: '#00e5ff' },
+    { id: 25, tag: 'MÓDULO 25', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://i.imgur.com/Y2OT1EC.png', titleMain: 'NO FACE', titleSub: '', colorHex: '#ff007f' },
     { id: 13, tag: 'MÓDULO 13', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/bd817c26-83bd-44a4-a5e8-8931dc606fa3.png', titleMain: 'ZERO CUSTO', titleSub: '', colorHex: '#ffaa00' },
     { id: 14, tag: 'MÓDULO 14', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/07e9a80a-ceec-4b53-b7e4-994816c0989f.png', titleMain: 'GERADOR DE', titleSub: 'headline', colorHex: '#00e5ff' },
     { id: 15, tag: 'MÓDULO 15', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/e95155f2-e00d-4c5f-8fb8-8c0e63f6ab45.png', titleMain: 'ONE PROMPT', titleSub: '', colorHex: '#ff007f' },
@@ -42,8 +44,6 @@ export function Modulos() {
     { id: 21, tag: 'MÓDULO 21', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/6449bf18-4ab9-4970-8951-b7d6d8d9a521.png', titleMain: 'BÔNUS AVATAR', titleSub: 'dançando', colorHex: '#00e5ff' },
     { id: 22, tag: 'MÓDULO 22', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/25202d0e-7aa9-48b4-b7ac-4d5145d7e67a.png', titleMain: 'BÔNUS', titleSub: 'motion', colorHex: '#ff007f' },
     { id: 23, tag: 'MÓDULO 23', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/b4a5a9b1-d7ab-41b8-9a45-b4840fc5338d.png', titleMain: 'REUNIÕES', titleSub: 'gravadas', colorHex: '#00ff66' },
-    { id: 24, tag: 'MÓDULO 24', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://i.imgur.com/34BJCxh.png', titleMain: 'MIRROR', titleSub: 'no face', colorHex: '#00e5ff' },
-    { id: 25, tag: 'MÓDULO 25', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://i.imgur.com/Y2OT1EC.png', titleMain: 'NO FACE', titleSub: '', colorHex: '#ff007f' },
   ];
 
 
