@@ -474,5 +474,69 @@ export const modulesData: ModuleItem[] = [
   },
   { id: 21, tag: 'MÓDULO 21', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/6449bf18-4ab9-4970-8951-b7d6d8d9a521.png', titleMain: 'BÔNUS AVATAR', titleSub: 'dançando', colorHex: '#00e5ff', aulas: [] },
   { id: 22, tag: 'MÓDULO 22', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/25202d0e-7aa9-48b4-b7ac-4d5145d7e67a.png', titleMain: 'BÔNUS', titleSub: 'motion', colorHex: '#ff007f', aulas: [] },
-  { id: 23, tag: 'MÓDULO 23', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/b4a5a9b1-d7ab-41b8-9a45-b4840fc5338d.png', titleMain: 'REUNIÕES', titleSub: 'gravadas', colorHex: '#00ff66', aulas: [] }
+  { id: 23, tag: 'MÓDULO 23', topText: 'MVZ Shop', subText: 'COMUNIDADE OFICIAL', image: 'https://cdn-checkout.cakto.com.br/images/b4a5a9b1-d7ab-41b8-9a45-b4840fc5338d.png', titleMain: 'REUNIÕES', titleSub: 'gravadas', colorHex: '#00ff66', aulas: [] },
+  { 
+    id: 24, 
+    tag: 'MÓDULO 24', 
+    topText: 'MVZ Shop', 
+    subText: 'COMUNIDADE OFICIAL', 
+    image: 'https://i.imgur.com/34BJCxh.png', 
+    titleMain: 'MIRROR', 
+    titleSub: 'no face', 
+    colorHex: '#00e5ff', 
+    aulas: [
+      {
+        id: 2401,
+        title: 'Introdução + Criando Corpo',
+        videoUrl: 'https://stream.cakto.com.br/978a3843-3f10-467e-ba43-01ba7224355d/playlist.m3u8'
+      },
+      {
+        id: 2402,
+        title: 'Colocando roupa na modelo',
+        videoUrl: 'https://stream.cakto.com.br/fb40ab77-ebae-42bd-8f29-4f96ebe76c49/720p/video.m3u8'
+      },
+      {
+        id: 2403,
+        title: 'Gerando vídeo',
+        videoUrl: 'https://stream.cakto.com.br/b20dda47-f7ee-4f59-91da-98fbdd3db598/720p/video.m3u8'
+      },
+      {
+        id: 2404,
+        title: 'Editando e postando',
+        videoUrl: 'https://stream.cakto.com.br/6f840c40-c7ce-4834-9260-c361128ddd56/360p/video.m3u8'
+      }
+    ] 
+  },
+  { 
+    id: 25, 
+    tag: 'MÓDULO 25', 
+    topText: 'MVZ Shop', 
+    subText: 'COMUNIDADE OFICIAL', 
+    image: 'https://i.imgur.com/Y2OT1EC.png', 
+    titleMain: 'NO FACE', 
+    titleSub: '', 
+    colorHex: '#ff007f', 
+    aulas: [
+      {
+        id: 2501,
+        title: 'Introdução + Criando Corpo',
+        videoUrl: 'https://stream.cakto.com.br/b96f65a5-342f-459d-8408-45f68a340182/720p/video.m3u8'
+      },
+      {
+        id: 2502,
+        title: 'Colocando roupa na modelo',
+        videoUrl: 'https://stream.cakto.com.br/efc791d6-c62b-4af4-a754-83c442dc4e60/720p/video.m3u8'
+      },
+      {
+        id: 2503,
+        title: 'Gerando vídeo',
+        videoUrl: 'https://stream.cakto.com.br/99fe4e65-078c-4460-9016-aba07b6023b1/720p/video.m3u8'
+      },
+      {
+        id: 2504,
+        title: 'Editando e postando',
+        videoUrl: 'https://stream.cakto.com.br/c182320b-662e-4dd9-8146-5ab6a1ae555d/720p/video.m3u8'
+      }
+    ] 
+  }
 ];

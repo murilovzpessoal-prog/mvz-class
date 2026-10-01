@@ -121,11 +121,11 @@ export function Home() {
 
           <div className="flex items-center justify-between px-2 pt-4 border-t border-white/10">
             <div className="text-center">
-              <span className="block text-xl font-black text-white">19</span>
+              <span className="block text-xl font-black text-white">25</span>
               <span className="text-[9px] font-bold text-white/40 uppercase tracking-widest">Módulos</span>
             </div>
             <div className="text-center">
-              <span className="block text-xl font-black text-white">64</span>
+              <span className="block text-xl font-black text-white">80</span>
               <span className="text-[9px] font-bold text-white/40 uppercase tracking-widest">Aulas</span>
             </div>
             <div className="text-center">
