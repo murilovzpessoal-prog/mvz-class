@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { ChevronLeft, Play, CheckCircle2, Circle, Star, ChevronRight, PlayCircle, Settings, Maximize, Search } from 'lucide-react';
+import { ChevronLeft, Play, CheckCircle2, Circle, Star, ChevronRight, PlayCircle, Settings, Maximize, Search, ExternalLink } from 'lucide-react';
 import Hls from 'hls.js';
 import { modulesData, type LessonItem } from '../data/modules';
 import { supabase } from '../lib/supabase';
@@ -277,18 +277,20 @@ export function Aula() {
           </div>
 
           {/* Lesson Description & Link */}
-          {(activeLessonData?.description || activeLessonData?.linkUrl) && (
+          {(activeLessonData?.description || activeLessonData?.linkUrl || (activeLessonData?.links && activeLessonData.links.length > 0)) && (
             <div className="mt-6 bg-[#050505] border border-white/5 rounded-2xl p-6 relative overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-white font-bold mb-3 flex items-center gap-2">
                   <PlayCircle className="w-5 h-5 text-[#ff007f]" />
-                  Descrição da Aula
+                  Descrição & Material da Aula
                 </h3>
                 {activeLessonData?.description && (
-                  <p className="text-white/60 text-sm leading-relaxed mb-5">
+                  <p className="text-white/70 text-sm leading-relaxed mb-4">
                     {activeLessonData.description}
                   </p>
                 )}
+                
+                {/* Single Link Button */}
                 {activeLessonData?.linkUrl && (
                   <a 
                     href={activeLessonData.linkUrl} 
@@ -310,8 +312,36 @@ export function Aula() {
                             ? 'Acessar Gerador'
                             : activeLessonData.linkUrl.includes('magnific')
                               ? 'Acessar Ferramenta (Magnific)'
-                              : 'Acessar Link Oficial'}
+                              : activeLessonData.linkUrl.includes('thedailyvirals')
+                                ? 'Acessar Daily Virals'
+                                : activeLessonData.linkUrl.includes('chromewebstore')
+                                  ? 'Acessar Extensão do Chrome'
+                                  : 'Acessar Link Oficial'}
                   </a>
+                )}
+
+                {/* Multiple Links Grid */}
+                {activeLessonData?.links && activeLessonData.links.length > 0 && (
+                  <div className="flex flex-wrap gap-2.5 mt-2">
+                    {activeLessonData.links.map((linkItem, idx) => (
+                      <a
+                        key={idx}
+                        href={linkItem.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`inline-flex items-center gap-2 font-bold uppercase tracking-wider text-[11px] py-2.5 px-4 rounded-xl transition-all hover:scale-105 shadow-md border ${
+                          linkItem.url.includes('wa.me')
+                            ? 'bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#25D366] border-[#25D366]/30'
+                            : linkItem.url.includes('instagram')
+                              ? 'bg-[#E1306C]/15 hover:bg-[#E1306C]/25 text-[#E1306C] border-[#E1306C]/30'
+                              : 'bg-white/5 hover:bg-white/10 text-white border-white/10'
+                        }`}
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+                        {linkItem.label}
+                      </a>
+                    ))}
+                  </div>
                 )}
               </div>
             </div>

@@ -4,12 +4,18 @@ export interface LessonContent {
   support?: string;
 }
 
+export interface LessonLink {
+  label: string;
+  url: string;
+}
+
 export interface LessonItem {
   id: number;
   title: string;
   videoUrl?: string;
   description?: string;
   linkUrl?: string;
+  links?: LessonLink[];
   content?: LessonContent;
 }
 
@@ -304,6 +310,94 @@ export const modulesData: ModuleItem[] = [
         id: 2504,
         title: 'Editando e postando',
         videoUrl: 'https://stream.cakto.com.br/c182320b-662e-4dd9-8146-5ab6a1ae555d/720p/video.m3u8'
+      }
+    ] 
+  },
+  { 
+    id: 26, 
+    tag: 'MÓDULO 26', 
+    topText: 'MVZ Shop', 
+    subText: 'COMUNIDADE OFICIAL', 
+    image: 'https://cdn-checkout.cakto.com.br/images/fe011b06-0185-4b23-aeb0-b51b72a91e00.png', 
+    titleMain: 'TIKTOK', 
+    titleSub: 'reino unido', 
+    colorHex: '#00ff66', 
+    aulas: [
+      {
+        id: 2601,
+        title: 'AULA 01 - Criando conta no tiktok Reino Unido',
+        videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/12/6eddd006-f25f-4080-9aec-a04070a87415/6eddd006-f25f-4080-9aec-a04070a87415-1080p.m3u8'
+      },
+      {
+        id: 2602,
+        title: 'AULA 02 - VPN para que serve',
+        videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/12/1b960e95-4daa-4c41-828b-43861b4c1ce7/1b960e95-4daa-4c41-828b-43861b4c1ce7-720p.m3u8'
+      },
+      {
+        id: 2603,
+        title: 'AULA 03 - VPN',
+        description: 'Lista completa de VPNs recomendadas (gratuitas e pagas) para criação e gerenciamento seguro da sua conta:',
+        links: [
+          { label: 'TunnelBear (Grátis)', url: 'https://www.tunnelbear.com/' },
+          { label: 'Privado VPN (Grátis)', url: 'https://privadovpn.com/' },
+          { label: 'Super VPN (Grátis)', url: 'https://play.google.com/store/apps/details?id=com.jrzheng.supervpnfree&hl=pt_BR' },
+          { label: 'Nord VPN (Paga)', url: 'https://nordvpn.com/' },
+          { label: 'Lets VPN (Paga)', url: 'https://letsvpn.world/' },
+          { label: 'Avast VPN Securiline (Paga)', url: 'https://www.avast.com/secureline-vpn' }
+        ]
+      },
+      {
+        id: 2604,
+        title: 'AULA 04 - CRESCIMENTO DE CONTA',
+        videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/13/77557291-8e26-4a1c-a854-f2a776a0d0b0/77557291-8e26-4a1c-a854-f2a776a0d0b0-1080p.m3u8'
+      },
+      {
+        id: 2605,
+        title: 'AULA 05 - FERRAMENTA DE ESPIONAGEM',
+        description: 'Acesse a ferramenta de espionagem de virais:',
+        linkUrl: 'https://www.thedailyvirals.com/'
+      },
+      {
+        id: 2606,
+        title: 'AULA 06 - Formatos de vídeos que dá pra fazer com ia',
+        videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/22/5cd1bb6b-27d5-44d0-ad9b-6d4a1a9f8a11/5cd1bb6b-27d5-44d0-ad9b-6d4a1a9f8a11-1080p.m3u8'
+      },
+      {
+        id: 2607,
+        title: 'AULA 07 - Como criar os vídeos de venda na prática parte 1',
+        videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/13/75785a52-3830-42e9-a472-9156ed72af0d/75785a52-3830-42e9-a472-9156ed72af0d-1080p.m3u8',
+        description: 'Extensão para organizar e filtrar o feed do TikTok:',
+        linkUrl: 'https://chromewebstore.google.com/detail/feed-sorter-for-tiktok-in/bmljpagafjlkebnopbdncpnifkknlobk?hl=pt-BR'
+      },
+      {
+        id: 2608,
+        title: 'AULA 08 - Criando Vídeos de vendas parte 2',
+        videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/14/888fb28d-d83d-478c-99ce-849532f43d50/888fb28d-d83d-478c-99ce-849532f43d50-1080p.m3u8'
+      },
+      {
+        id: 2609,
+        title: 'AULA 09 - Como escolher os melhores produtos de fornecedores que investem em ADS',
+        videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/13/96776a9a-3b06-4fbf-a4ed-1fece2a9e58c/96776a9a-3b06-4fbf-a4ed-1fece2a9e58c-1080p.m3u8'
+      },
+      {
+        id: 2610,
+        title: 'AULA 10 - Como ativar o TIKTOK SHOP',
+        videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/17/16d202fb-aecf-4567-a120-2bbfe26e9b63/16d202fb-aecf-4567-a120-2bbfe26e9b63-1080p.m3u8'
+      },
+      {
+        id: 2611,
+        title: 'AULA 11 - Bônus (Ferramenta PAGA pra facilitar na criação de vídeos)',
+        videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/17/e3dbed49-2ff9-4707-82da-dba01eded567/e3dbed49-2ff9-4707-82da-dba01eded567-1080p.m3u8'
+      },
+      {
+        id: 2612,
+        title: 'AULA 12 - ÚLTIMA AULA IMPORTANTE',
+        videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/17/0aaa7668-309a-41bd-8056-f9656cda3811/0aaa7668-309a-41bd-8056-f9656cda3811-1080p.m3u8',
+        description: 'Entre em contato direto pelo WhatsApp ou acompanhe no Instagram:',
+        links: [
+          { label: 'Chamar no WhatsApp (+55 19 99581-2717)', url: 'https://wa.me/5519995812717' },
+          { label: 'Instagram (@ingrid.ia34)', url: 'https://www.instagram.com/ingrid.ia34/' }
+        ]
       }
     ] 
   },
