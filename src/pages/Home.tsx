@@ -125,7 +125,7 @@ export function Home() {
               <span className="text-[9px] font-bold text-white/40 uppercase tracking-widest">Módulos</span>
             </div>
             <div className="text-center">
-              <span className="block text-xl font-black text-white">92</span>
+              <span className="block text-xl font-black text-white">94</span>
               <span className="text-[9px] font-bold text-white/40 uppercase tracking-widest">Aulas</span>
             </div>
             <div className="text-center">

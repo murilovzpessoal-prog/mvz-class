@@ -318,11 +318,16 @@ export const modulesData: ModuleItem[] = [
     tag: 'MÓDULO 26', 
     topText: 'MVZ Shop', 
     subText: 'COMUNIDADE OFICIAL', 
-    image: 'https://cdn-checkout.cakto.com.br/images/fe011b06-0185-4b23-aeb0-b51b72a91e00.png', 
+    image: 'https://i.imgur.com/csdXFcS.png', 
     titleMain: 'TIKTOK', 
     titleSub: 'reino unido', 
     colorHex: '#00ff66', 
     aulas: [
+      {
+        id: 2600,
+        title: 'Introdução ao Módulo',
+        videoUrl: 'https://stream.cakto.com.br/4f766766-4754-4f85-8b71-cb648024bc44/720p/video.m3u8'
+      },
       {
         id: 2601,
         title: 'AULA 01 - Criando conta no tiktok Reino Unido',
@@ -387,17 +392,24 @@ export const modulesData: ModuleItem[] = [
       {
         id: 2611,
         title: 'AULA 11 - Bônus (Ferramenta PAGA pra facilitar na criação de vídeos)',
-        videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/17/e3dbed49-2ff9-4707-82da-dba01eded567/e3dbed49-2ff9-4707-82da-dba01eded567-1080p.m3u8'
+        videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/17/e3dbed49-2ff9-4707-82da-dba01eded567/e3dbed49-2ff9-4707-82da-dba01eded567-1080p.m3u8',
+        description: 'Adquira a ferramenta para facilitar a criação dos vídeos:',
+        linkUrl: 'https://pay.kiwify.com.br/UFOX4Up?afid=hcPrXwj0'
       },
       {
         id: 2612,
-        title: 'AULA 12 - ÚLTIMA AULA IMPORTANTE',
+        title: 'AULA 12 - Conclusão Importante',
         videoUrl: 'https://d3pjuhbfoxhm7c.cloudfront.net/U1EM5K6Obk1rqaZ/2026/10/17/0aaa7668-309a-41bd-8056-f9656cda3811/0aaa7668-309a-41bd-8056-f9656cda3811-1080p.m3u8',
         description: 'Entre em contato direto pelo WhatsApp ou acompanhe no Instagram:',
         links: [
           { label: 'Chamar no WhatsApp (+55 19 99581-2717)', url: 'https://wa.me/5519995812717' },
           { label: 'Instagram (@ingrid.ia34)', url: 'https://www.instagram.com/ingrid.ia34/' }
         ]
+      },
+      {
+        id: 2613,
+        title: 'ÚLTIMA AULA DO MÓDULO',
+        videoUrl: 'https://stream.cakto.com.br/005a4dec-c783-4f2c-8196-fa097b2ad61d/720p/video.m3u8'
       }
     ] 
   },

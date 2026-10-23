@@ -316,7 +316,9 @@ export function Aula() {
                                 ? 'Acessar Daily Virals'
                                 : activeLessonData.linkUrl.includes('chromewebstore')
                                   ? 'Acessar Extensão do Chrome'
-                                  : 'Acessar Link Oficial'}
+                                  : activeLessonData.linkUrl.includes('kiwify')
+                                    ? 'Acessar Material da Aula (Kiwify)'
+                                    : 'Acessar Link Oficial'}
                   </a>
                 )}
 
