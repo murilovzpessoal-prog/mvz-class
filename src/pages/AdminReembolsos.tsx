@@ -12,10 +12,8 @@ import {
   LogOut, 
   Clock, 
   Calendar, 
-  CreditCard, 
   Mail, 
   ShieldCheck,
-  CheckCircle2,
   XCircle,
   FileText
 } from 'lucide-react';
@@ -28,7 +26,7 @@ export function AdminReembolsos() {
   const [searchTerm, setSearchTerm] = useState('');
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  // Initial mock fallback if empty so admin has demonstrative items just like user print
+  // Initial mock fallback if empty
   const loadData = () => {
     let list = getStoredRefunds();
     if (list.length === 0) {
@@ -38,7 +36,6 @@ export function AdminReembolsos() {
           name: 'Eliete de Jesus barbosa',
           email: 'elietedejesusbarbosa26@gmail.com',
           purchaseDate: '25/10/2026',
-          plan: 'Plano Anual (R$ 297,00)',
           reason: 'O aplicativo não funciona. Quero meu dinheiro de volta.',
           requestedAt: '2026-10-28T13:03:00.000Z',
           status: 'em_analise'
@@ -48,7 +45,6 @@ export function AdminReembolsos() {
           name: 'Sheila Fonseca de Castro',
           email: 'acessocursos77@gmail.com',
           purchaseDate: '20/10/2026',
-          plan: 'Plano Anual (R$ 297,00)',
           reason: 'Não desejo prosseguir por esse caminho, que essa ferramenta trabalha, estou dentro do prazo de 7 dias.',
           requestedAt: '2026-10-26T18:56:00.000Z',
           status: 'em_analise'
@@ -69,7 +65,6 @@ export function AdminReembolsos() {
 Nome: ${r.name}
 E-mail: ${r.email}
 Data da Compra: ${r.purchaseDate}
-Plano: ${r.plan}
 Motivo: ${r.reason}
 Solicitado em: ${new Date(r.requestedAt).toLocaleString('pt-BR')}`;
     
@@ -93,7 +88,6 @@ Solicitado em: ${new Date(r.requestedAt).toLocaleString('pt-BR')}`;
     return (
       r.name.toLowerCase().includes(q) ||
       r.email.toLowerCase().includes(q) ||
-      r.plan.toLowerCase().includes(q) ||
       r.purchaseDate.includes(q)
     );
   });
@@ -177,7 +171,7 @@ Solicitado em: ${new Date(r.requestedAt).toLocaleString('pt-BR')}`;
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Pesquisar por nome, e-mail, plano ou data..."
+                placeholder="Pesquisar por nome, e-mail ou data..."
                 className="w-full bg-[#050505] border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder:text-white/30 focus:outline-none focus:border-[#00e5ff]/50 transition-colors"
               />
             </div>
@@ -258,9 +252,6 @@ Solicitado em: ${new Date(r.requestedAt).toLocaleString('pt-BR')}`;
                   <div>
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="text-base font-black text-white">{item.name}</h3>
-                      <span className="text-[10px] font-black uppercase tracking-wider bg-[#ffaa00]/15 text-[#ffaa00] border border-[#ffaa00]/30 px-2.5 py-0.5 rounded-full">
-                        {item.plan}
-                      </span>
                       <span className={`text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1 ${
                         item.status === 'em_analise'
                           ? 'bg-[#00ff66]/15 text-[#00ff66] border border-[#00ff66]/30'
@@ -289,21 +280,13 @@ Solicitado em: ${new Date(r.requestedAt).toLocaleString('pt-BR')}`;
                   </div>
                 </div>
 
-                {/* Info Pills Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                {/* Info Pill */}
+                <div className="mb-4">
                   <div className="bg-[#050505] border border-white/5 rounded-xl p-3 flex items-center gap-3">
                     <Calendar className="w-4 h-4 text-[#00e5ff] shrink-0" />
                     <div>
                       <span className="text-[10px] uppercase font-bold text-white/40 block">Data da Compra Informada:</span>
                       <span className="text-xs font-bold text-white">{item.purchaseDate}</span>
-                    </div>
-                  </div>
-
-                  <div className="bg-[#050505] border border-white/5 rounded-xl p-3 flex items-center gap-3">
-                    <CreditCard className="w-4 h-4 text-[#ffaa00] shrink-0" />
-                    <div>
-                      <span className="text-[10px] uppercase font-bold text-white/40 block">Plano / Valor Estimado:</span>
-                      <span className="text-xs font-bold text-white">{item.plan}</span>
                     </div>
                   </div>
                 </div>

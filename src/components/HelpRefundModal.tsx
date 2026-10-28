@@ -4,10 +4,7 @@ import {
   RotateCcw, 
   X, 
   HelpCircle, 
-  ShieldAlert, 
-  Lock, 
   CheckCircle2, 
-  Calendar, 
   Clock, 
   CreditCard, 
   Zap, 
@@ -24,7 +21,6 @@ export interface RefundRequest {
   name: string;
   email: string;
   purchaseDate: string;
-  plan: string;
   reason: string;
   requestedAt: string; // ISO
   status: 'em_analise' | 'cancelado' | 'concluido';
@@ -54,7 +50,7 @@ export function saveStoredRefunds(list: RefundRequest[]) {
 export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose: boolean | (() => void) }) {
   const close = typeof onClose === 'function' ? onClose : () => {};
 
-  // View state: 'menu' | 'form' | 'details' | 'admin_pin'
+  // View state: 'menu' | 'form' | 'details'
   const [view, setView] = useState<'menu' | 'form' | 'details'>('menu');
   
   // Current user's refund status
@@ -64,7 +60,6 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [purchaseDate, setPurchaseDate] = useState('');
-  const [plan, setPlan] = useState('Plano Anual (R$ 297,00)');
   const [reason, setReason] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -79,7 +74,10 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
           if (user.email) setEmail(user.email);
         } else {
           const storedEmail = localStorage.getItem('mvz_user_email');
-          if (storedEmail) setEmail(storedEmail);
+          if (storedEmail) {
+            setEmail(storedEmail);
+            setName(storedEmail.split('@')[0]);
+          }
         }
       });
 
@@ -90,7 +88,6 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
         const found = all.find(r => r.id === activeUserRefundId && r.status === 'em_analise');
         setUserRefund(found || null);
       } else {
-        // try to find by email
         const storedEmail = localStorage.getItem('mvz_user_email');
         if (storedEmail) {
           const found = all.find(r => r.email.toLowerCase() === storedEmail.toLowerCase() && r.status === 'em_analise');
@@ -117,7 +114,6 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
       name: name.trim(),
       email: email.trim(),
       purchaseDate: purchaseDate.split('-').reverse().join('/'), // YYYY-MM-DD -> DD/MM/YYYY
-      plan: plan,
       reason: reason.trim(),
       requestedAt: new Date().toISOString(),
       status: 'em_analise'
@@ -129,14 +125,13 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
     saveStoredRefunds(updated);
     localStorage.setItem(USER_REFUND_KEY, newRequest.id);
 
-    // Try optional sync to Supabase (if table exists)
+    // Optional Supabase sync
     try {
       await supabase.from('reembolsos').insert([{
         id: newRequest.id,
         name: newRequest.name,
         email: newRequest.email,
         purchase_date: newRequest.purchaseDate,
-        plan: newRequest.plan,
         reason: newRequest.reason,
         status: newRequest.status,
         created_at: newRequest.requestedAt
@@ -222,7 +217,7 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
                 </p>
               </div>
 
-              {/* Option 1: WhatsApp Suporte */}
+              {/* Option 1: WhatsApp Suporte Oficial (Link oficial da aba Suporte: https://w.app/gabimvz) */}
               <a
                 href="https://w.app/gabimvz"
                 target="_blank"
@@ -298,31 +293,18 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
                 </div>
               )}
 
-              {/* Footer WhatsApp oficial info */}
-              <div className="text-center pt-2">
-                <p className="text-[11px] text-white/40">
-                  WhatsApp Oficial: <span className="text-white/70 font-semibold">(62) 99406-6449</span>
-                </p>
+              {/* Botão de WhatsApp adicional para contato rápido */}
+              <div className="pt-2 text-center">
+                <a
+                  href="https://w.app/gabimvz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-[#25D366] hover:underline"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  Falar diretamente com um atendente
+                </a>
               </div>
-
-              {/* Botão Admin */}
-              <a
-                href="/admin/reembolsos"
-                onClick={(e) => {
-                  e.preventDefault();
-                  close();
-                  window.location.href = '/admin/reembolsos';
-                }}
-                className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#ffaa00]/10 hover:bg-[#ffaa00]/15 border border-[#ffaa00]/30 text-[#ffaa00] text-xs font-bold transition-all group"
-              >
-                <div className="flex items-center gap-2">
-                  <Lock className="w-3.5 h-3.5" />
-                  <span>Ver Reembolsos no Painel Admin</span>
-                </div>
-                <span className="text-[9px] uppercase font-black px-2 py-0.5 rounded bg-[#ffaa00]/20 border border-[#ffaa00]/40">
-                  Admin
-                </span>
-              </a>
 
             </div>
           )}
@@ -337,7 +319,7 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
                 </span>
                 <h3 className="text-lg font-black text-white">Dados da sua Compra</h3>
                 <p className="text-xs text-white/50 leading-relaxed">
-                  Informe os dados utilizados no momento do pagamento para localizarmos seu pedido.
+                  Informe seus dados para localizarmos sua compra e realizarmos o estorno.
                 </p>
               </div>
 
@@ -384,37 +366,19 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
                 </div>
               </div>
 
-              {/* Data da Compra & Plano */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="text-[11px] font-bold text-white/50 uppercase tracking-wider block mb-1.5">
-                    Data da Compra *
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="date"
-                      required
-                      value={purchaseDate}
-                      onChange={(e) => setPurchaseDate(e.target.value)}
-                      className="w-full bg-[#111] border border-white/10 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-[#00e5ff]/50 transition-colors [color-scheme:dark]"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-[11px] font-bold text-white/50 uppercase tracking-wider block mb-1.5">
-                    Plano Adquirido
-                  </label>
-                  <select
-                    value={plan}
-                    onChange={(e) => setPlan(e.target.value)}
-                    className="w-full bg-[#111] border border-white/10 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-[#00e5ff]/50 transition-colors"
-                  >
-                    <option value="Plano Anual (R$ 297,00)">Plano Anual (R$ 297,00)</option>
-                    <option value="Plano Vitalício (R$ 497,00)">Plano Vitalício (R$ 497,00)</option>
-                    <option value="Plano Mensal (R$ 47,00)">Plano Mensal (R$ 47,00)</option>
-                    <option value="Outro / Upsell">Outro / Upsell</option>
-                  </select>
+              {/* Data da Compra */}
+              <div>
+                <label className="text-[11px] font-bold text-white/50 uppercase tracking-wider block mb-1.5">
+                  Data da Compra *
+                </label>
+                <div className="relative">
+                  <input
+                    type="date"
+                    required
+                    value={purchaseDate}
+                    onChange={(e) => setPurchaseDate(e.target.value)}
+                    className="w-full bg-[#111] border border-white/10 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-[#00e5ff]/50 transition-colors [color-scheme:dark]"
+                  />
                 </div>
               </div>
 
@@ -455,22 +419,24 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
             </form>
           )}
 
-          {/* VIEW: STATUS / DETALHES DO REEMBOLSO (Perfeito ao modelo enviado) */}
+          {/* VIEW: STATUS / DETALHES DO REEMBOLSO (Personalizado com o nome do cliente e informações corretas) */}
           {view === 'details' && userRefund && (
             <div className="space-y-4">
               
-              {/* Card Header Status */}
+              {/* Card Header Status com nome dinâmico do cliente */}
               <div className="p-4 rounded-2xl bg-[#00e5ff]/10 border border-[#00e5ff]/20 flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-[#00e5ff] shrink-0 mt-0.5" />
                 <div className="text-xs">
-                  <p className="font-bold text-white mb-0.5">Solicitação enviada com sucesso!</p>
+                  <p className="font-bold text-white mb-0.5">
+                    Olá, <span className="text-[#00e5ff]">{userRefund.name}</span>! Sua solicitação foi registrada.
+                  </p>
                   <p className="text-white/60 leading-relaxed">
-                    Seus dados foram registrados e direcionados para a fila de atendimento da equipe financeira.
+                    Sua solicitação já foi registrada e está em análise. Os dados da compra em <strong className="text-white">{userRefund.purchaseDate}</strong> vinculados ao e-mail <strong className="text-white">{userRefund.email}</strong> foram encaminhados para a equipe financeira.
                   </p>
                 </div>
               </div>
 
-              {/* Informações detalhadas com ícones */}
+              {/* Prazos e como funciona o estorno (Exatamente como o print) */}
               <div className="space-y-3 p-4 rounded-2xl bg-white/[0.02] border border-white/5 text-xs">
                 <div className="text-[11px] font-bold uppercase tracking-wider text-white/40 flex items-center gap-1.5 mb-2">
                   <Clock className="w-3.5 h-3.5 text-[#ffaa00]" />
@@ -498,6 +464,20 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
                   </p>
                 </div>
               </div>
+
+              {/* Link direto para o suporte no WhatsApp */}
+              <a
+                href="https://w.app/gabimvz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-2xl bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 flex items-center justify-between text-xs text-[#25D366] transition-all group"
+              >
+                <div className="flex items-center gap-2.5">
+                  <MessageCircle className="w-4 h-4 shrink-0" />
+                  <span className="font-bold">Falar com o Suporte no WhatsApp</span>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </a>
 
               {/* Warning Alert Box */}
               <div className="p-3.5 rounded-2xl bg-[#ffaa00]/10 border border-[#ffaa00]/25 flex items-start gap-2.5 text-xs text-[#ffaa00]">

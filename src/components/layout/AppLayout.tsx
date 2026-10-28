@@ -472,15 +472,10 @@ export function AppLayout() {
               setIsMobileMenuOpen(false);
               setIsHelpOpen(true);
             }}
-            className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-[13px] font-medium transition-all duration-300 group mb-1 text-text-muted hover:text-white hover:bg-white/5 cursor-pointer"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-[13px] font-medium transition-all duration-300 group mb-1 text-text-muted hover:text-white hover:bg-white/5 cursor-pointer"
           >
-            <div className="flex items-center gap-3 min-w-0">
-              <HelpCircle className="w-[18px] h-[18px] shrink-0 text-[#00e5ff] group-hover:scale-110 transition-transform" strokeWidth={2.2} />
-              <span className="truncate">Ajuda</span>
-            </div>
-            <span className="text-[9px] font-black uppercase tracking-wider bg-[#00e5ff]/15 text-[#00e5ff] border border-[#00e5ff]/30 px-1.5 py-0.5 rounded-md shrink-0">
-              Reembolso
-            </span>
+            <HelpCircle className="w-[18px] h-[18px] shrink-0 text-[#00e5ff] group-hover:scale-110 transition-transform" strokeWidth={2.2} />
+            <span className="truncate">Ajuda</span>
           </button>
         </nav>
 
