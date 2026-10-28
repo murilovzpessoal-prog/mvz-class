@@ -12,6 +12,7 @@ import { AnalisadorFornecedor } from './pages/AnalisadorFornecedor';
 import { Aula } from './pages/Aula';
 import { Login } from './pages/Login';
 import { BoasVindasVSL } from './pages/BoasVindasVSL';
+import { AdminReembolsos } from './pages/AdminReembolsos';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
         {/* Aulas & Login page run outside AppLayout */}
         <Route path="/login" element={<Login />} />
         <Route path="/aula/:id" element={<Aula />} />
+
+        {/* Admin Reembolsos */}
+        <Route path="/admin/reembolsos" element={<AdminReembolsos />} />
       </Routes>
     </BrowserRouter>
   );

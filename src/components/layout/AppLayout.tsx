@@ -26,11 +26,13 @@ import {
   Loader2,
   SlidersHorizontal,
   Store,
-  Send
+  Send,
+  HelpCircle
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { SearchPalette } from '../SearchPalette';
+import { HelpRefundModal } from '../HelpRefundModal';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -114,6 +116,7 @@ export function AppLayout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [activeNotifications, setActiveNotifications] = useState<string[]>([]);
 
   const ALL_NOTIFICATIONS = [
@@ -463,6 +466,22 @@ export function AppLayout() {
           />
           
           <SidebarItem icon={HeadphonesIcon} label="Suporte" to="/suporte" onClick={() => setIsMobileMenuOpen(false)} />
+
+          <button
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsHelpOpen(true);
+            }}
+            className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-[13px] font-medium transition-all duration-300 group mb-1 text-text-muted hover:text-white hover:bg-white/5 cursor-pointer"
+          >
+            <div className="flex items-center gap-3 min-w-0">
+              <HelpCircle className="w-[18px] h-[18px] shrink-0 text-[#00e5ff] group-hover:scale-110 transition-transform" strokeWidth={2.2} />
+              <span className="truncate">Ajuda</span>
+            </div>
+            <span className="text-[9px] font-black uppercase tracking-wider bg-[#00e5ff]/15 text-[#00e5ff] border border-[#00e5ff]/30 px-1.5 py-0.5 rounded-md shrink-0">
+              Reembolso
+            </span>
+          </button>
         </nav>
 
         {/* User Profile Settings Sidebar Button */}
@@ -569,8 +588,23 @@ export function AppLayout() {
         <div className="p-6 lg:p-8 space-y-8 overflow-y-auto">
           <Outlet />
         </div>
+
+        {/* Floating Help Button (Bottom Right) */}
+        <div className="fixed bottom-6 right-6 z-40">
+          <button
+            onClick={() => setIsHelpOpen(true)}
+            className="group relative flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#0c0c0e]/90 hover:bg-[#111] border border-[#00e5ff]/40 hover:border-[#00e5ff] text-white shadow-[0_10px_30px_-5px_rgba(0,229,255,0.3)] hover:shadow-[0_15px_40px_-5px_rgba(0,229,255,0.5)] transition-all duration-300 hover:scale-105 backdrop-blur-xl cursor-pointer"
+            title="Ajuda & Suporte"
+          >
+            <div className="w-2.5 h-2.5 rounded-full bg-[#00e5ff] animate-pulse" />
+            <HelpCircle className="w-5 h-5 text-[#00e5ff] group-hover:rotate-12 transition-transform" />
+            <span className="text-xs font-black uppercase tracking-wider text-white">Ajuda</span>
+          </button>
+        </div>
+
       </main>
       <SearchPalette isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <HelpRefundModal isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} />
     </div>
   );
 }
