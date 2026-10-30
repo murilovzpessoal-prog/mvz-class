@@ -42,7 +42,7 @@ export function Suporte() {
                 Fale com a nossa equipe agora mesmo. Atendimento humanizado rápido e direto, disponível de domingo a domingo.
               </p>
               
-              <a href="https://w.app/gabimvz" target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center gap-3 text-[#25D366] font-bold text-sm tracking-widest uppercase group-hover:gap-5 transition-all relative z-10">
+              <a href="https://www.contate.me/suportemvz" target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center gap-3 text-[#25D366] font-bold text-sm tracking-widest uppercase group-hover:gap-5 transition-all relative z-10">
                 Iniciar Conversa <ArrowRight className="w-5 h-5" />
               </a>
             </div>

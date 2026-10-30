@@ -230,12 +230,12 @@ export function Aula() {
                     <div className="mt-8 text-sm text-white/40 flex flex-col items-center gap-2 border-t border-white/10 pt-6 w-full">
                       <span>Problemas para entrar?</span>
                       <a 
-                        href={`https://wa.me/55${activeLessonData.content.support.replace(/\D/g,'')}`} 
+                        href="https://www.contate.me/suportemvz" 
                         target="_blank" 
                         rel="noreferrer" 
                         className="text-[#25D366] hover:underline font-bold"
                       >
-                        Chamar Suporte: {activeLessonData.content.support}
+                        Chamar Suporte no WhatsApp
                       </a>
                     </div>
                   )}

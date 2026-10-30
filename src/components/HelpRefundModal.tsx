@@ -217,9 +217,9 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
                 </p>
               </div>
 
-              {/* Option 1: WhatsApp Suporte Oficial (Link oficial da aba Suporte: https://w.app/gabimvz) */}
+              {/* Option 1: WhatsApp Suporte Oficial (Link oficial: https://www.contate.me/suportemvz) */}
               <a
-                href="https://w.app/gabimvz"
+                href="https://www.contate.me/suportemvz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/5 hover:border-[#25D366]/40 transition-all duration-300 shadow-lg relative overflow-hidden"
@@ -296,7 +296,7 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
               {/* Botão de WhatsApp adicional para contato rápido */}
               <div className="pt-2 text-center">
                 <a
-                  href="https://w.app/gabimvz"
+                  href="https://www.contate.me/suportemvz"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-xs font-bold text-[#25D366] hover:underline"
@@ -467,7 +467,7 @@ export function HelpRefundModal({ isOpen, onClose }: { isOpen: boolean; onClose:
 
               {/* Link direto para o suporte no WhatsApp */}
               <a
-                href="https://w.app/gabimvz"
+                href="https://www.contate.me/suportemvz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3.5 rounded-2xl bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 flex items-center justify-between text-xs text-[#25D366] transition-all group"
