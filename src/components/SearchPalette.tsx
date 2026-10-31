@@ -14,7 +14,8 @@ import {
   ScanSearch,
   Package,
   SlidersHorizontal,
-  Store
+  Store,
+  KeyRound
 } from 'lucide-react';
 import { modulesData } from '../data/modules';
 
@@ -56,6 +57,17 @@ export function SearchPalette({ isOpen, onClose }: SearchPaletteProps) {
         icon: Zap,
         colorHex: '#00e5ff',
         url: 'https://mvzhooks.site/'
+      },
+      {
+        type: 'feature',
+        id: 'feat-tokens',
+        title: 'Tokens de Acesso VIP',
+        subtitle: 'Biblioteca de Prompts & MVZ Hooks',
+        description: 'Acesse os tokens exclusivos para desbloquear a Biblioteca de Prompts e o gerador MVZ Hooks',
+        keywords: 'tokens senhas acesso liberacao biblioteca prompts mvzhooks headline senha',
+        icon: KeyRound,
+        colorHex: '#00e5ff',
+        url: '/tokens'
       },
       {
         type: 'community',

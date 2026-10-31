@@ -9,6 +9,7 @@ import { Scanner } from './pages/Scanner';
 import { Produtos } from './pages/Produtos';
 import { AnalisadorProduto } from './pages/AnalisadorProduto';
 import { AnalisadorFornecedor } from './pages/AnalisadorFornecedor';
+import { Tokens } from './pages/Tokens';
 import { Aula } from './pages/Aula';
 import { Login } from './pages/Login';
 import { BoasVindasVSL } from './pages/BoasVindasVSL';
@@ -27,6 +28,7 @@ function App() {
           <Route path="produtos" element={<Produtos />} />
           <Route path="analisador-produto" element={<AnalisadorProduto />} />
           <Route path="analisador-fornecedor" element={<AnalisadorFornecedor />} />
+          <Route path="tokens" element={<Tokens />} />
         </Route>
         {/* Onboarding & VSL Tutorial Routes */}
         <Route path="/boas-vindas" element={<BoasVindasVSL />} />

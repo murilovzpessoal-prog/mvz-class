@@ -27,7 +27,8 @@ import {
   SlidersHorizontal,
   Store,
   Send,
-  HelpCircle
+  HelpCircle,
+  KeyRound
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -436,6 +437,7 @@ export function AppLayout() {
           
           <ExternalSidebarItem icon={BrainCircuit} label="Biblioteca de Prompts" href="https://promptsmvz.site/dashboard.html" />
           <ExternalSidebarItem icon={Zap} label="MVZ Hooks" href="https://mvzhooks.site/" />
+          <SidebarItem icon={KeyRound} label="Tokens" to="/tokens" badge="VIP" onClick={() => setIsMobileMenuOpen(false)} />
           
           <ExternalSidebarItem 
             icon={(props: any) => (
